@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Agregar compras</title>
+</head>
+<body>
+    <h1>Agregar compras</h1>
+    <form action="{{ url_for('compras.add') }}" method="post">
+        <label for="fecha">Fecha:</label>
+        <input type="text" id="fecha" name="fecha"  required>
+        <label for="total">Total:</label>
+        <input type="text" id="total" name="total"  required>
+        
+        <button type="submit">Agregar compras</button>
+    </form>
+</body>
+</html>

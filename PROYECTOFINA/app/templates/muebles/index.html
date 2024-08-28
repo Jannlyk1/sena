@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Inventario de muebles</title>
+</head>
+<body>
+    <h1>Lista de Muebles</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            
+        </tr>
+        {% for muebles in data %}
+            <tr>
+                <td>{{ muebles.id }}</td>
+                <td>{{ muebles.nombre }}</td>
+                <td>{{ muebles.descripcion}}</td>
+                <td>{{ muebles.precio }}</td>
+                <td>{{ muebles.cantidad }}</td>
+                <td>
+                    <a href="{{ url_for('muebles.edit', id=muebles.id) }}">Editar</a>
+                    <a href="{{ url_for('muebles.delete', id=muebles.id) }}">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('muebles.add') }}">Agregar Muebles</a>
+</body>
+</html>

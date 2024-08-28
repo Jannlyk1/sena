@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Inventario de detallecompra</title>
+</head>
+<body>
+    <h1>Lista de Detallecompra</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Costo</th>
+        
+        </tr>
+        {% for detallecompra in data %}
+            <tr>
+                <td>{{ detallecompra.id }}</td>
+                <td>{{ detallecompra.costo }}</td>
+                
+                <td>
+                    <a href="{{ url_for('detallecompra.edit', id=detallecompra.id) }}">Editar</a>
+                    <a href="{{ url_for('detallecompra.delete', id=detallecompra.id) }}">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('detallecompras.add') }}">Agregar Detallecompra</a>
+</body>
+</html>

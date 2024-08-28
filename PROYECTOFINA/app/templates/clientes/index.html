@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Inventario de clientes</title>
+</head>
+<body>
+    <h1>Lista de Clientes</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Correo</th>
+            
+        </tr>
+        {% for clientes in data %}
+            <tr>
+                <td>{{ clientes.id }}</td>
+                <td>{{ clientes.nombre }}</td>
+                <td>{{ clientes.direccion }}</td>
+                <td>{{ clientes.telefono }}</td>
+                <td>{{ clientes.correo }}</td>
+                <td>
+                    <a href="{{ url_for('clientes.edit', id=clientes.id) }}">Editar</a>
+                    <a href="{{ url_for('clientes.delete', id=clientes.id) }}">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('clientes.add') }}">Agregar Clientes</a>
+</body>
+</html>

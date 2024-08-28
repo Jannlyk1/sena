@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Editar Materiales</title>
+</head>
+<body>
+    <h1>Editar Materiales</h1>
+    <form action="{{ url_for('materiales.edit', id=materiales.id) }}" method="post">
+        
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre value=" value="{{ materiales.nombre }}" required>
+        <label for="tipo">Tipo:</label>
+        <input type="text" id="tipo" name="tipo" value="{{ materiales.tipo }}" required>
+        <label for="costo">Costo:</label>
+        <input type="text" id="costo" name="costo" value="{{ materiales.costo }}" required>
+        <label for="cantidad">Cantidad:</label>
+        <input type="text" id="cantidad" name="cantidad" value="{{ materiales.cantidad }}" required>
+        <button type="submit">Actualizar materiales</button>
+    </form>
+</body>
+</html>
